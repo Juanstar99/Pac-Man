@@ -1,0 +1,374 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Pac-Man</title>
+    <style> 
+        /* Estilo para el cuerpo del documento */
+        body {
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco */
+            font-family: 'Press Start 2P', cursive; /* Fuente retro */
+            text-align: center; /* Texto centrado */
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Estilo para los encabezados (h1 y h2) */
+        h1, h2 {
+            color: #FFD700; /* Color dorado */
+            text-shadow: 3px 3px #000; /* Sombra en el texto */
+        }
+    
+        /* Estilo para los párrafos */
+        p {
+            font-size: 1em; /* Tamaño de letra */
+            margin: 15px auto;
+            max-width: 90%; /* Adapta el ancho a la pantalla */
+            color: #fff; /* Texto blanco */
+        }
+    
+        /* Estilo para las instrucciones */
+        .instructions {
+            background-color: #333; /* Fondo gris oscuro */
+            padding: 15px;
+            border-radius: 10px; /* Esquinas redondeadas */
+            margin: 10px auto;
+            max-width: 95%; /* Adapta a pantallas móviles */
+        }
+    
+        /* Estilo para el botón de juego */
+        .play-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FF4500; /* Naranja fuerte */
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease; /* Transición suave al pasar el cursor */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+        }
+    
+        /* Efecto hover (cuando el cursor pasa sobre el botón) */
+        .play-button:hover {
+            background-color: #FF6347; /* Naranja claro al pasar el cursor */
+        }
+    
+        /* Estilo para la sección de referencias */
+        .references {
+            background-color: #222; /* Fondo negro claro */
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px auto;
+            max-width: 95%;
+            color: #00FF00; /* Texto verde */
+        }
+    
+        /* Estilo para los enlaces dentro de referencias */
+        .references a {
+            color: #00FFFF; /* Enlaces de color cian */
+            text-decoration: none;
+        }
+    
+        /* Efecto hover para los enlaces en referencias */
+        .references a:hover {
+            text-decoration: underline; /* Subraya al pasar el cursor */
+        }
+    
+        /* Estilo para el pie de página */
+        footer {
+            background-color: #111; /* Fondo negro oscuro */
+            color: #fff;
+            padding: 10px;
+            font-size: 0.9em; /* Tamaño de letra pequeño */
+            border-top: 2px solid #FFD700; /* Línea dorada en la parte superior */
+            margin-top: 40px;
+        }
+    
+        /* Estilos para los mensajes de éxito y error */
+        .message.success {
+            color: green;
+            font-weight: bold; /* Texto en negrita */
+        }
+    
+        .message.error {
+            color: red;
+            font-weight: bold; /* Texto en negrita */
+        }
+    
+        /* Estilo general para los botones */
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    
+        /* Efecto hover para botones */
+        .button:hover {
+            background-color: #45a049; /* Verde más claro al pasar el cursor */
+        }
+    
+        /* Estilo para el título en el encabezado */
+        header h1 {
+            font-size: 2.5em; /* Tamaño de letra grande */
+            color: #FFD700; /* Color dorado */
+        }
+    
+        /* Estilo para las secciones */
+        section {
+            margin: 10px 0;
+            padding: 15px;
+            border: 2px solid #FFD700; /* Borde dorado */
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+        }
+    
+        /* Estilo para los encabezados (h2) */
+        h2 {
+            font-size: 1.5em;
+        }
+    
+        /* Estilo para los campos de número */
+        input[type="number"] {
+            font-size: 1.2em;
+            padding: 10px;
+            margin-top: 10px;
+            width: 80%; /* Ancho adaptable a la pantalla */
+        }
+    
+        /* Estilo para los botones */
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #FFD700; /* Fondo dorado */
+            color: #000; /* Texto negro */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        /* Efecto hover para los botones */
+        button:hover {
+            background-color: #FFC107; /* Fondo dorado más claro */
+        }
+    
+        /* Estilo para los botones de formulario y de juego */
+        .play-button, .form-button {
+            display: inline-block;
+            font-size: 1.2em;
+            padding: 10px 20px;
+            background-color: #FFD700; /* Fondo dorado */
+            color: #000; /* Texto negro */
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    
+        /* Efecto hover para los botones */
+        .play-button:hover, .form-button:hover {
+            background-color: #FFC107; /* Fondo dorado más claro al pasar el cursor */
+        }
+    
+        /* Estilo para las imágenes dentro de referencias */
+        .references img {
+            max-width: 100%; /* Las imágenes se adaptan al ancho del contenedor */
+            height: auto;
+        }
+    
+        /* Estilos específicos para pantallas pequeñas (móviles) */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Tamaño de letra más pequeño para móviles */
+            }
+    
+            h2 {
+                font-size: 1.2em; /* Tamaño de letra más pequeño para móviles */
+            }
+    
+            p {
+                font-size: 0.9em; /* Texto más pequeño en móviles */
+            }
+    
+            input[type="number"] {
+                font-size: 1em; /* Tamaño de fuente más pequeño */
+            }
+    
+            button {
+                font-size: 1em; /* Tamaño de fuente más pequeño */
+            }
+    
+            .play-button, .form-button {
+                font-size: 1em; /* Tamaño de botón más pequeño */
+            }
+        }
+    
+    </style>
+    
+
+
+
+    <!-- Conexión con los estilos de la pagina -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- lINK DE ESTILO RETRO PACKMAN y Carga de fuente-->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>¡Bienvenido al Mundo de Jua-Man!</h1>
+    </header>
+
+    <!-- Se encuentran las instrucciones del juego -->
+    <section class="instructions">
+        <h2>Instrucciones</h2>
+        <p>
+            Disfruta del los siguientes juegos haciendo clic en el botones que se te presentan. Diviértete y aprende mientras juegas! Los juegos consisten en el clásico retro Pac-Man, Trivia y adivina el Numero, Mucha Suerte!.
+        </p>
+    </section>
+
+<!-- Juego de Trivia de Videojuegos -->
+<section class="trivia-game">
+    <h2>Juego: Trivia</h2>
+    <p>Responde las siguientes preguntas para poner a prueba tus conocimientos sobre videojuegos. ¡Buena suerte!</p>
+    
+    <div id="triviaQuestions">
+        <p id="triviaQuestion"></p>
+        <input type="text" id="triviaAnswer" placeholder="Escribe tu respuesta aquí">
+        <button id="submitTrivia">Enviar Respuesta</button>
+        <p id="triviaResult"></p>
+        <p id="triviaScore">Puntaje: 0</p>
+    </div>
+    <script>
+
+        // Juego: Trivia de Videojuegos
+        const triviaQuestions = [
+            {
+                question: "¿Cuál es el nombre del famoso fontanero de Nintendo?",
+                answer: "mario"
+            },
+            {
+                question: "¿En qué videojuego aparece un personaje llamado Link?",
+                answer: "zelda"
+            },
+            {
+                question: "¿Cuál es el juego más vendido de todos los tiempos?",
+                answer: "tetris"
+            },
+            {
+                question: "¿En qué año se lanzó el primer PlayStation?",
+                answer: "1994"
+            },
+            {
+                question: "¿Cuál es el nombre de la franquicia de juegos de lucha de Capcom con personajes de Marvel?",
+                answer: "marvel vs capcom"
+            }
+        ];
+        
+        let currentQuestionIndex = 0; // Índice de la pregunta actual
+        let score = 0; // Puntaje inicial
+        
+        // Función para mostrar la siguiente pregunta de trivia
+        function showNextTriviaQuestion() {
+            if (currentQuestionIndex < triviaQuestions.length) {
+                const currentQuestion = triviaQuestions[currentQuestionIndex];
+                document.getElementById("triviaQuestion").textContent = currentQuestion.question; // Muestra la pregunta actual
+                document.getElementById("triviaAnswer").value = ""; // Limpia el campo de respuesta
+            } else {
+                document.getElementById("triviaQuestions").innerHTML = `<h3>Juego terminado. Tu puntaje final es: ${score}</h3>`; // Muestra el puntaje final
+            }
+        }
+        
+        // Evento que se activa al hacer clic en el botón "Enviar Respuesta"
+        document.getElementById("submitTrivia").addEventListener("click", () => {
+            const userAnswer = document.getElementById("triviaAnswer").value.toLowerCase(); // Obtiene la respuesta del usuario
+        
+            // Compara la respuesta del usuario con la respuesta correcta
+            if (userAnswer === triviaQuestions[currentQuestionIndex].answer) {
+                score++; // Incrementa el puntaje si la respuesta es correcta
+                document.getElementById("triviaResult").textContent = "¡Correcto!"; // Mensaje de respuesta correcta
+            } else {
+                document.getElementById("triviaResult").textContent = `Incorrecto. La respuesta correcta era: "${triviaQuestions[currentQuestionIndex].answer}".`; // Mensaje de respuesta incorrecta
+            }
+        
+            currentQuestionIndex++; // Avanza a la siguiente pregunta
+            document.getElementById("triviaScore").textContent = `Puntaje: ${score}`; // Muestra el puntaje actualizado
+            showNextTriviaQuestion(); // Muestra la siguiente pregunta
+        });
+        
+        // Inicializa el primer juego de trivia
+        showNextTriviaQuestion();
+
+    </script>
+</section>
+
+    <!-- Juego de JavaScript: Adivina el Número -->
+    <section class="number-game">
+        <h2>Juego: Adivina el Número</h2>
+        <p>Adivina un número entre 1 y 10, Juega con un amigo y quien lo adivine sera el Ganador y podra jugar Pac-Man. ¡Mucha suerte!</p>
+        <input type="number" id="guess" placeholder="Introduce tu número" min="1" max="10">
+        <button id="submit">Adivinar</button>
+        <p id="result"></p>
+        <script>
+                // Juego: Adivina el Número
+const randomNumber = Math.floor(Math.random() * 10) + 1;
+const submitButton = document.getElementById('submit');
+const resultText = document.getElementById('result');
+
+//Logica del juego adivina en JAVASCRIPT
+
+submitButton.addEventListener('click', () => {
+    const userGuess = parseInt(document.getElementById('guess').value);
+    if (userGuess === randomNumber) {
+        resultText.textContent = '¡Felicidades! Adivinaste el número, A JUEGAR PACKMAN!.';
+    } else if (userGuess < randomNumber) {
+        resultText.textContent = 'Demasiado bajo. Intenta de nuevo, ni modo viejo.';
+    } else if (userGuess > randomNumber) {
+        resultText.textContent = 'Demasiado alto. Intenta de nuevo, ponte vivo viejo.';
+    }
+});
+
+        </script>
+    </section>
+
+    
+
+
+    <!-- Enlace al juego en Google -->
+    <section class="game-link">
+        <h2>Juega Pac-Man Ahora</h2>
+        <a href="https://g.co/kgs/7JaZUwy" target="_blank" class="play-button">¡Jugar!</a>
+    </section>
+
+    <!-- Enlace al formulario para enviar respuestas -->
+    <section class="form-link">
+        <h2>¿Quieres compartir tus resultados?</h2>
+        <a href="form.html" class="form-button">Envíanos tu respuesta</a>
+        
+    </section>
+
+    <!-- Referencias del juego -->
+    <section class="references">
+        <h2>Referencias</h2>
+        <ul>
+            <li>Fuente del juego: <a href="https://g.co/kgs/crzq4gw">Google-Juegos</a></li>
+            <li>Tráiler del juego: <a href="https://youtu.be/-CbyAk3Sn9I?si=O4AtBUnhcOEzK_bB" target="_blank">Ver Tráiler</a></li>
+            <li>Tipografías: <a href="https://fonts.google.com/selection/embed">Ver Tipografías</a></li>
+        </ul>
+        <img src="img/giphy.gif" alt="Imagen de Pac-Man">
+    </section>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
+
+
+
+</body>
+</html>

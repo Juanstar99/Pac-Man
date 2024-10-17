@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrucciones de la Encuesta del Videojuego</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222; /* Fondo oscuro para resaltar los colores */
+            color: #fff; /* Texto blanco */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #f1c40f; /* Amarillo de Pac-Man */
+        }
+
+        section {
+            margin-bottom: 20px;
+            background: #34495e; /* Color azul oscuro para las secciones */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+            color: #e74c3c; /* Rojo para las etiquetas */
+        }
+
+        input[type="email"], 
+        input[type="text"], 
+        textarea, 
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: 1px solid #f39c12; /* Naranja para los bordes */
+            border-radius: 5px;
+            box-sizing: border-box; /* Hace que el padding no afecte el ancho total */
+            background-color: #ecf0f1; /* Fondo claro para campos de entrada */
+            color: #333; /* Texto oscuro en campos de entrada */
+        }
+
+        textarea {
+            height: 100px; /* Altura fija para las áreas de texto */
+        }
+
+        button {
+            background-color: #f1c40f; /* Amarillo de Pac-Man */
+            color: #222; /* Texto oscuro en el botón */
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #f39c12; /* Naranja al pasar el ratón */
+        }
+
+        /* Estilo para el mensaje de éxito */
+        .success-message {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Encuesta y Mejoras del Videojuego</h1>
+
+    <section>
+        <h2>Instrucciones</h2>
+        <p>Me gustaría que llenaras el formulario para poder tener más en cuenta tus opiniones sobre mejorar el juego o qué te pareció el videojuego. ¡Muchas Gracias!</p>
+    </section>
+
+    <section>
+        <h2>Formulario de Encuesta (Ejemplo)</h2>
+        <!-- Formulario modificado para usar FormSubmit -->
+        <form action="https://formspree.io/f/xdkooakl" method="POST"> 
+            <!-- Protege el formulario contra SPAM -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Redireccionar a una página de éxito tras enviar -->
+            <input type="hidden" name="_next" value="https://tusitio.com/exito.html">
+
+            <!-- Ingreso de correo -->
+            <label for="email">Correo de Gmail:</label>
+            <input type="email" id="email" name="email" placeholder="Tu correo de Gmail" required>
+
+            <h3>Preguntas sobre el juego:</h3>
+
+            <label for="pregunta1">1. ¿Te pareció divertido el juego?</label>
+            <select id="pregunta1" name="pregunta1" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+                <option value="Regular">Regular</option>
+            </select>
+
+            <label for="pregunta2">2. ¿Consideras que los mini juegos son variados y divertidos?</label>
+            <select id="pregunta2" name="pregunta2" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta3">3. ¿La organización y presentación de los juegos son claras y fáciles de seguir?</label>
+            <select id="pregunta3" name="pregunta3" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta4">4. ¿Te gustaría que se añadieran nuevos tipos de mini juegos en el futuro?</label>
+            <select id="pregunta4" name="pregunta4" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta5">5. ¿El sonido y la música del juego Pac-Man fue de tu agrado?</label>
+            <select id="pregunta5" name="pregunta5" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta6">6. ¿Te gustaría ver más desafíos dentro de los juegos?</label>
+            <select id="pregunta6" name="pregunta6" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta7">7. ¿Consideras que la mecánica de los tres juegos es adecuada y fácil de entender?</label>
+            <select id="pregunta7" name="pregunta7" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta8">8. ¿Crees que se necesita más variedad en los tipos de mini juegos disponibles?</label>
+            <select id="pregunta8" name="pregunta8" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta9">9. ¿Te parece que la mecánica de los juegos es interesante y atractiva?</label>
+            <select id="pregunta9" name="pregunta9" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta10">10. ¿Tienes algún juego favorito que te gustaría que se incluyera en el próximo desarrollo?</label>
+            <select id="pregunta10" name="pregunta10" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta11">11. ¿Cuál sería tu juego favorito que te gustaría agregar?</label>
+            <textarea id="pregunta11" name="pregunta11" required></textarea>
+
+            <label for="pregunta12">12. ¿Cómo fue tu experiencia con los controles en los juegos?</label>
+            <textarea id="pregunta12" name="pregunta12" required></textarea>
+
+            <label for="pregunta13">13. ¿Experimentaste algún error o bug mientras jugabas?</label>
+            <select id="pregunta13" name="pregunta13" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="pregunta14">14. ¿Qué nuevas características o mejoras sugerirías para los juegos?</label>
+            <textarea id="pregunta14" name="pregunta14" required></textarea>
+
+            <label for="pregunta15">15. ¿Recomendarías estos juegos a tus amigos?</label>
+            <select id="pregunta15" name="pregunta15" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Botón para enviar -->
+            <button type="submit">Enviar Respuestas</button>
+        </form>
+    </section>
+</body>
+</html>

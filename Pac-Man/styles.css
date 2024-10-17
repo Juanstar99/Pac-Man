@@ -1,0 +1,168 @@
+/* Estilo general */
+body {
+    background-color: #000; /* Fondo negro, clásico de Pac-Man */
+    color: #fff;
+    font-family: 'Press Start 2P', cursive; /* Fuente estilo arcade */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #FFD700; /* Amarillo Pac-Man */
+    text-shadow: 3px 3px #000;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 20px auto;
+    max-width: 800px;
+    color: #fff;
+}
+
+/* Estilo de las instrucciones */
+.instructions {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+/* Estilos del botón de juego */
+.play-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #FF4500; /* Naranja vibrante */
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.play-button:hover {
+    background-color: #FF6347; /* Cambio de color al pasar el ratón */
+}
+
+/* Estilos de la sección de referencias */
+.references {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 900px;
+    color: #00FF00; /* Verde neon, para darle un toque retro */
+}
+
+.references a {
+    color: #00FFFF; /* Azul claro estilo neón */
+    text-decoration: none;
+}
+
+.references a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #fff;
+    padding: 10px;
+    font-size: 0.9em;
+    border-top: 2px solid #FFD700;
+    margin-top: 40px;
+}
+
+
+.message.success {
+    color: green;
+    font-weight: bold;
+}
+
+.message.error {
+    color: red;
+    font-weight: bold;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000; /* Fondo oscuro para un efecto retro */
+    color: #FFF; /* Texto en blanco para mayor visibilidad */
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 3em; /* Aumenta el tamaño del título */
+    color: #FFD700; /* Color dorado */
+}
+
+section {
+    margin: 20px 0; /* Espacio entre secciones */
+    padding: 20px;
+    border: 2px solid #FFD700; /* Borde dorado */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo translúcido */
+}
+
+h2 {
+    font-size: 2em; /* Aumenta el tamaño de los subtítulos */
+}
+
+input[type="number"] {
+    font-size: 1.5em; /* Aumenta el tamaño del input */
+    padding: 10px; /* Espaciado interno */
+    margin-top: 10px;
+}
+
+button {
+    font-size: 1.5em; /* Aumenta el tamaño del botón */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #FFD700; /* Color dorado */
+    color: #000; /* Texto negro */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+button:hover {
+    background-color: #FFC107; /* Cambia color al pasar el mouse */
+}
+
+.play-button, .form-button {
+    display: inline-block; /* Para aplicar margen */
+    font-size: 1.5em; /* Aumenta el tamaño del enlace */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #FFD700; /* Color dorado */
+    color: #000; /* Texto negro */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 10px; /* Espacio arriba */
+}
+
+.play-button:hover, .form-button:hover {
+    background-color: #FFC107; /* Cambia color al pasar el mouse */
+}
+
+.references img {
+    max-width: 100%; /* Ajusta la imagen al ancho de la sección */
+    height: auto; /* Mantiene la proporción */
+}
